@@ -3,7 +3,7 @@ resource "aws_kms_key" "dgkms" {
   deletion_window_in_days = 7
 }
 
-resource "aws_s3_bucket" "dgsrdd" {
+resource "aws_s3_bucket" "dgdemo12345" {
   bucket = var.bucket
   acl    = var.acl
 
@@ -13,12 +13,9 @@ resource "aws_s3_bucket" "dgsrdd" {
   }
 }
 
-resource "aws_s3_bucket_object" "dgbucket_object" {
+resource "aws_s3_bucket_object" "dgdemo12345" {
   key        = "dgobject1"
-  bucket     = aws_s3_bucket.dgsrdd.id
+  bucket     = aws_s3_bucket.dgdemo12345.id
   kms_key_id = aws_kms_key.dgkms.arn
 }
-resource "aws_instance" "example" {
-  ami           = "ami-0af25d0df86db00c1"
-  instance_type = "t2.micro"
-}
+
